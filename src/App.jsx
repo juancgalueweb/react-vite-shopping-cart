@@ -3,18 +3,19 @@ import Cart from './components/Cart.jsx'
 import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
 import Products from './components/Products.jsx'
-import { useFilters } from './hooks/useFilters.js'
-import mockProducts from './mocks/products.json'
+import { useGetProducts } from './hooks/useGetProducts.js'
 
 function App() {
-  const { filterProducts } = useFilters()
-
-  const filteredProducts = filterProducts(mockProducts)
+  const { loading, filteredProducts } = useGetProducts()
 
   return (
     <AppWrapper>
       <Header />
-      <Products products={filteredProducts} />
+      {loading ? (
+        <p className='text-center text-3xl text-red-500 mb-4'>Loading...</p>
+      ) : (
+        <Products products={filteredProducts} />
+      )}
       <Cart />
       <Footer />
     </AppWrapper>
