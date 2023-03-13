@@ -1,8 +1,10 @@
 import { useId } from 'react'
 import { useFilters } from '../hooks/useFilters.js'
+import { useGetProducts } from '../hooks/useGetProducts.js'
 
 const Filters = () => {
-  const { filters, setFilters } = useFilters()
+  const { filters, setFilters, categoryArray } = useFilters()
+  const { maxPrice } = useGetProducts()
   const minPriceFilterId = useId()
   const categoryFilterId = useId()
 
@@ -27,7 +29,7 @@ const Filters = () => {
           id={minPriceFilterId}
           type='range'
           min='0'
-          max='1000'
+          max={Math.ceil(maxPrice)}
           value={filters.minPrice}
           className='w-48 h-2 bg-gray-200 rounded-lg cursor-pointer'
           onChange={handleChangeMinPrice}
@@ -46,11 +48,14 @@ const Filters = () => {
           className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-48 p-1.5'
           onChange={handleChangeCategory}
         >
-          <option value='all'>Todas</option>
-          <option value='electronics'>Equipos electrónicos</option>
-          <option value='jewelery'>Joyas</option>
-          <option value="men's clothing">Ropa de caballero</option>
-          <option value="women's clothing">Ropa de dama</option>
+          <option value='all'>All</option>
+          {categoryArray.map(category => {
+            return (
+              <option key={category} value={category}>
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </option>
+            )
+          })}
         </select>
       </div>
     </section>

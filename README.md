@@ -1,5 +1,9 @@
 # Enunciado
 
+## API usado
+
+[Fake Store API](https://fakestoreapi.com/)
+
 1. Ecommerce
 
 - ✔ Muestra una lista de productos que vienen de un JSON
