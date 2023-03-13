@@ -4,7 +4,7 @@ pages:
   cache:
     key:
       files:
-        - package-lock.json
+        - pnpm-lock.yaml
       prefix: pnpm
     paths:
       - node_modules/
