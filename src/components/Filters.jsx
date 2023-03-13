@@ -18,24 +18,31 @@ const Filters = () => {
   }
 
   return (
-    <section className='flex justify-between items-center my-10'>
-      <div className='flex items-center gap-4'>
-        <label
-          htmlFor={minPriceFilterId}
-          className='inline text-sm font-medium text-gray-900'
-        >
-          Price starting from
-        </label>
-        <input
-          id={minPriceFilterId}
-          type='range'
-          min='0'
-          max={maxPrice}
-          value={filters.minPrice}
-          className='w-48 h-2 bg-gray-200 rounded-lg cursor-pointer'
-          onChange={handleChangeMinPrice}
-        />
-        <span>${filters.minPrice}</span>
+    <section className='flex justify-between items-start my-10'>
+      <div className='flex flex-col items-center gap-4'>
+        <div className='flex justify-between items-center'>
+          <label
+            htmlFor={minPriceFilterId}
+            className='text-sm font-medium text-gray-900 m-2'
+          >
+            Price
+          </label>
+          <input
+            id={minPriceFilterId}
+            type='range'
+            min='0'
+            max={maxPrice}
+            value={filters.minPrice}
+            className='w-48 h-2 bg-gray-200 rounded-lg cursor-pointer m-2'
+            onChange={handleChangeMinPrice}
+          />
+          <span className='m-2'>${filters.minPrice}</span>
+        </div>
+
+        <div className='flex justify-between items-center'>
+          <span className='mr-1'>From $0 </span>
+          <span>- To ${maxPrice}</span>
+        </div>
       </div>
       <div className='flex items-center gap-4'>
         <label
