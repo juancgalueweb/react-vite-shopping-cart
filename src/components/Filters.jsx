@@ -23,7 +23,7 @@ const Filters = () => {
           htmlFor={minPriceFilterId}
           className='inline text-sm font-medium text-gray-900'
         >
-          Precio a partir de
+          Price starting from
         </label>
         <input
           id={minPriceFilterId}
@@ -41,7 +41,7 @@ const Filters = () => {
           htmlFor={categoryFilterId}
           className='inline text-sm font-medium text-gray-900'
         >
-          Categoría
+          Categories
         </label>
         <select
           id={categoryFilterId}
