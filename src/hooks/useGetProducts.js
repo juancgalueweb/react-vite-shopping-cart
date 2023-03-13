@@ -25,7 +25,7 @@ export function useGetProducts() {
 
   const filteredProducts = filterProducts(products)
 
-  const prices = products.map(product => product.price)
+  const prices = filteredProducts.map(product => product.price)
   const maxPrice = Math.max(...prices)
 
   return { filteredProducts, loading, maxPrice }

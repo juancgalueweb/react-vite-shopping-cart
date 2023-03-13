@@ -12,8 +12,9 @@ const Filters = () => {
     setFilters(prevState => ({ ...prevState, minPrice: e.target.value }))
   }
 
+  // Cuando se cambia la categoría, vuelvo a colocar el filtro del precio mínimo a cero
   const handleChangeCategory = e => {
-    setFilters(prevState => ({ ...prevState, category: e.target.value }))
+    setFilters({ category: e.target.value, minPrice: 0 })
   }
 
   return (
@@ -29,7 +30,7 @@ const Filters = () => {
           id={minPriceFilterId}
           type='range'
           min='0'
-          max={Math.ceil(maxPrice)}
+          max={maxPrice}
           value={filters.minPrice}
           className='w-48 h-2 bg-gray-200 rounded-lg cursor-pointer'
           onChange={handleChangeMinPrice}
