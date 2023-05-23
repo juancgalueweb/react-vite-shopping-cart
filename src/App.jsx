@@ -1,6 +1,5 @@
 import AppWrapper from './components/AppWrapper.jsx'
 import Cart from './components/Cart.jsx'
-import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
 import Products from './components/Products.jsx'
 import { useGetProducts } from './hooks/useGetProducts.js'
@@ -17,7 +16,6 @@ function App() {
         <Products products={filteredProducts} />
       )}
       <Cart />
-      <Footer />
     </AppWrapper>
   )
 }
